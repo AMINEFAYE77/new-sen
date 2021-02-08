@@ -39,9 +39,9 @@ class Product extends Model
         return $query->where('status',true);
     }
 
-    /*public function scopeInactif($query)
+    public function scopeInactif($query)
     {
         return $query->where('status',false);
-    }*/
+    }
 
 }

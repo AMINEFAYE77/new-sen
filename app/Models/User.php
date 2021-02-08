@@ -70,7 +70,9 @@ class User extends Authenticatable
     public function hasAnyRole($role){
         return null !== $this->roles()->where('libelle',$role)->first();
     }*/
-
+    public function hasAnyRoles(array $roles){
+        return null !== $this->roles()->whereIn('libelle',$roles)->first();
+    }
     public function IsAdmin(){
         return $this->roles()->where('libelle','admin')->first();
     }

@@ -6,9 +6,13 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Jetstream\Jetstream;
 
 class UsersController extends Controller
 {
+
     public function __construct()
 
     {
@@ -35,19 +39,37 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
-        //
+        $roles = Role::all();
+        return view('admin.users.create',compact('roles'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param array $input
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'password' => 'required',
+            //'role' => 'required',
+        ]);
+
+       $users= User::create([
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $users->roles()->attach($request->input('role'));
+
+        return redirect()->route('users.index')->with('success','Utilisateur cree avec success');
     }
 
     /**
@@ -91,6 +113,9 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
+        $user->name= $request->name;
+        $user->email= $request->email;
+        $user->save();
         return redirect()->route('users.index');
     }
 

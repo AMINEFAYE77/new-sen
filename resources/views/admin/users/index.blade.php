@@ -77,26 +77,26 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{implode(',',$user->roles()->get()->pluck('libelle')->toArray())}}</td>
-                                            <td>
-                                                <form id="product_delete" action="" method="POST">
+                                                <td>
+                                                    <form id="product_delete" action="" method="POST">
 
-                                                   {{-- <a href="{{ route('users.show', $user->id) }}" title="show">
-                                                        <i class="fas fa-eye text-success  fa-lg"></i>
-                                                    </a>--}}
+                                                        {{-- <a href="{{ route('users.show', $user->id) }}" title="show">
+                                                             <i class="fas fa-eye text-success  fa-lg"></i>
+                                                         </a>--}}
 
-                                                    <a href="{{ route('users.edit', $user->id) }}">
-                                                        <i class="fas fa-edit  fa-lg"></i>
+                                                        <a href="{{ route('users.edit', $user->id) }}">
+                                                            <i class="fas fa-edit  fa-lg"></i>
 
-                                                    </a>
+                                                        </a>
 
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <a href="javascript:delete_product('{{ route('users.destroy', $user->id) }}')">
-                                                        <i class="fas fa-trash fa-lg text-danger"></i>
-                                                    </a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a href="javascript:delete_product('{{ route('users.destroy', $user->id) }}')">
+                                                            <i class="fas fa-trash fa-lg text-danger"></i>
+                                                        </a>
 
-                                                </form>
-                                            </td>
+                                                    </form>
+                                                </td>
                                         </tr>
                                     @endforeach
 

@@ -25,7 +25,7 @@
             <a class="btn btn-danger mb-3 " href="{{route('products.index')}}"> <i class="fas fa-arrow-left"></i> Retour</a>
             <div class="row">
                 <div class="col-lg-12">
-                    @can('is-admin')
+                    @can('managers-admin')
                         <div class="card">
                             <div class="card-body">
                                 <form action="{{ route('products.validate',$product->id) }}" method="post">

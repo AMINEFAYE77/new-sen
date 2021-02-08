@@ -11,6 +11,7 @@ use App\Models\Tag;
 use App\Models\TypeProduct;
 use App\Models\User;
 use App\Notifications\NewProductsCreated;
+use App\Notifications\ProductIsvalid;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;
@@ -257,13 +258,15 @@ class ProductController extends Controller
             $product->update([
                 'status' => true
             ]);
+
+
         }else{
             $product->update([
                 'status' => false
             ]);
         }
 
-            return redirect()->route('products.index')->with('success','Statut mise a jour avec success');
+            return redirect()->route('users.index')->with('success','Statut mise a jour avec success');
 
     }
 
@@ -271,6 +274,7 @@ class ProductController extends Controller
     {
 
          $products = Product::actif()->get();
+
 
         return view('admin.product.mesProducts',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

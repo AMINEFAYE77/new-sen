@@ -33,7 +33,7 @@
     <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <a class="btn btn-danger " href="{{route('products.index')}}"> <i class="fas fa-arrow-left"></i> Retour</a>
+                <a class="btn btn-danger " href="{{route('users.index')}}"> <i class="fas fa-arrow-left"></i> Retour</a>
                 <br>
                 <br>
                 <div class="row">
@@ -50,7 +50,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
-                                    {{--<div class="form-group">
+                                    <div class="form-group">
                                         <label for="exampleInputEmail1">Nom Utilisateur</label>
                                         <input type="text"  name="name" value="{{old('name') ? old('name') : $user->name }}" class="form-control" id="name"  placeholder="Nom Utilisateur">
                                         @if($errors->any('name'))
@@ -61,22 +61,14 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Adresse email</label>
-                                        <input type="email"  name="lieu" value="{{old('email') ? old('email') : $user->email }}" class="form-control" id="exampleInputEmail1"  placeholder="Email">
+                                        <input type="email"  name="email" value="{{old('email') ? old('email') : $user->email }}" class="form-control" id="exampleInputEmail1"  placeholder="Email">
                                         @if($errors->any('email'))
                                             <span class="text-danger">{{$errors->first('email')}}</span>
                                         @endif
 
-                                    </div>--}}
-
-                                   {{-- <div class="form-group">
-                                        <label for="exampleInputPassword1">superficie</label>
-                                        <input type="number" name="superficie" value="{{old('superficie') ? old('superficie') : $product->superficie }}" class="form-control" id="superficie"  placeholder="Superficie">
-                                        @if($errors->any('superficie'))
-                                            <span class="text-danger">{{$errors->first('superficie')}}</span>
-                                        @endif
                                     </div>
 
---}}                              @foreach($roles as $role)
+                                    @foreach($roles as $role)
                                         <div class="row">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-primary d-inline">
@@ -91,25 +83,25 @@
                                                     @endforeach
 
                                                     </div>
-<!-- /.card-body -->
-<div class="card-footer">
-<button type="submit" class="btn btn-primary">Enregistre</button>
-</div>
-</form>
-</div>
-<!-- /.card -->
-</div>
-<!--/.col (left) -->
-<!-- right column -->
-<div class="col-md-6">
+                <!-- /.card-body -->
+                <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Enregistre</button>
+                </div>
+                </form>
+                </div>
+                <!-- /.card -->
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+                <div class="col-md-6">
 
-</div>
-<!--/.col (right) -->
-</div>
-<!-- /.row -->
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-@endsection
+                </div>
+                <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+                </div><!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+                </div>
+                <!-- /.content-wrapper -->
+                @endsection

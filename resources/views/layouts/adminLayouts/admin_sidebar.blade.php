@@ -119,38 +119,40 @@
                 </li>
 
 
-                <li class="nav-header">Section Gestion Utilisateurs</li>
+               @can('managers-users')
+                    <li class="nav-header">Section Gestion Utilisateurs</li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-phone-alt"></i>
-                        <p>
-                            Utilisateurs et Roles
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('users.create')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Ajouter un utitlisateurs</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('users.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>liste les utilisateurs & Roles</p>
-                            </a>
-                        </li>
-                       {{-- <li class="nav-item">
-                            <a href="{{route('search_appel')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Recherche avancée</p>
-                            </a>
-                        </li>--}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-phone-alt"></i>
+                            <p>
+                                Utilisateurs et Roles
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('users.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter un utitlisateurs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('users.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>liste les utilisateurs & Roles</p>
+                                </a>
+                            </li>
+                            {{-- <li class="nav-item">
+                                 <a href="{{route('search_appel')}}" class="nav-link">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Recherche avancée</p>
+                                 </a>
+                             </li>--}}
 
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
+                @endcan
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

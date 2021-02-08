@@ -39,6 +39,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('products/{id}/validate', [ProductController::class,'validationproduit'])->name('products.validate');
 
     Route::resource('appels', AppelController::class);
-    Route::resource('/admin/users', UsersController::class);
+    Route::resource('/admin/users', UsersController::class)->middleware('can:managers-users');
 });
 

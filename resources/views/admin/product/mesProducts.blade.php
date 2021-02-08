@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Liste des produits</h1>
+                        <h1>Tous les Produits</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Liste des produits</li>
+                            <li class="breadcrumb-item active">Tous les Produits</li>
                         </ol>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Liste Produit</h3>
+                                <h3 class="card-title">Tous les Produits</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

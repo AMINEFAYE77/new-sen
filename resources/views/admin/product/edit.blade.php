@@ -20,17 +20,30 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{session('success')}}
-            </div>
-        @endif
+        <script>
+            @if(session('success'))
 
-        @if(session('error'))
-            <div class="alert alert-danger">
-                {{session('error')}}
-            </div>
-    @endif
+            swal({
+                title: "{{session('success')}}",
+                text: "{{session('status')}}",
+                icon: "success",
+                button: "OK",
+            });
+            @endif
+        </script>
+
+        <script>
+            @if(session('error'))
+
+            swal({
+                title: "{{session('error')}}",
+                text: "{{session('status')}}",
+                icon: "error",
+                button: "OK",
+            });
+            @endif
+
+        </script>
     <!-- Main content -->
         <section class="content">
             <div class="container-fluid">

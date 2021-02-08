@@ -90,8 +90,8 @@ class AppelController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param Appel $appel
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function update(Request $request, Appel $appel)
@@ -99,7 +99,7 @@ class AppelController extends Controller
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
-            'numero' => 'required'|'min:9'
+            'numero' => 'required|min:9'
         ]);
 
         $appel->update($request->all());
