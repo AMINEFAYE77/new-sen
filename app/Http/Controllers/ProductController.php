@@ -217,7 +217,7 @@ class ProductController extends Controller
         $data['communes']=Commune::orderBy('id','desc')->get();
         $data['regions']=Region::orderBy('id','desc')->get();
         $data['type_products']=TypeProduct::orderBy('id','desc')->get();
-        $products_query = Product::where('user_id',auth()->id())->where('status',true);
+        $products_query = Product::where('status',true);
 
         if ($request->commune){
             $products_query->whereHas('commune',function($q) use($request){
@@ -266,14 +266,20 @@ class ProductController extends Controller
             ]);
         }
 
-            return redirect()->route('users.index')->with('success','Statut mise a jour avec success');
+            return redirect()->route('allproducts')->with('success','Statut mise a jour avec success');
 
     }
 
     public function allProduct()
     {
+      // $users= Auth::user()->role()->where('libelle','admin');
+        if (Auth::check() && Auth::user()->isAdmin()){
+            $products = Product::all();
+        }
+        else{
+            $products = Product::actif()->get();
+            }
 
-         $products = Product::actif()->get();
 
 
         return view('admin.product.mesProducts',compact('products'))

@@ -44,7 +44,7 @@
                                             <div class="form-group">
                                                 <label>Type de produit</label>
                                                 <select class="form-control" id="type_product">
-                                                    <option>Selectionner un type de produit</option>
+                                                    <option></option>
                                                     @if(count($type_products))
                                                         @foreach($type_products as $type_product)
                                                             <option value="{{$type_product->libelle}}" {{(Request::query('type_product')) && (Request::query('type_product') == $type_product->libelle)?'selected':'' }} >{{$type_product->libelle}}</option>
@@ -57,7 +57,7 @@
                                             <div class="form-group">
                                                 <label>Commune</label>
                                                 <select class="form-control" id="commune" >
-                                                    <option>Selectionner une commune</option>
+                                                    <option></option>
                                                     @if(count($communes))
                                                         @foreach($communes as $commune)
                                                             <option value="{{$commune->libelle}}" {{(Request::query('commune')) && (Request::query('commune') == $commune->libelle)?'selected':''}} >{{$commune->libelle}}</option>
@@ -72,7 +72,7 @@
                                             <div class="form-group">
                                                 <label>Regions</label>
                                                 <select class="form-control" id="region">
-                                                    <option>Selectionner une region</option>
+                                                    <option></option>
                                                     @if(count($regions))
                                                         @foreach($regions as $region)
                                                             <option value="{{$region->libelle}}" {{(Request::query('region')) && (Request::query('region') == $region->libelle)?'selected':''}} >{{$region->libelle}}</option>
